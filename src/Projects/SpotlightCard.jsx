@@ -130,8 +130,8 @@ export default function SpotlightProjects() {
             liveLink: "https://social-hub-apps-project-a8nc.vercel.app/",
             viewLink: "https://social-hub-apps-project-a8nc.vercel.app/",
             spotlightColor: "rgba(255, 0, 229, 0.15)",
-            clientRepo: "git push -u origin main",
-            serverRepo: "git push -u origin main"
+            clientRepo: "https://github.com/maimunamumu/Social-Hub-Apps-Project",
+            serverRepo: "https://github.com/maimunamumu/Social-Hub-Apps-Project"
         }
     ];
 
