@@ -6,7 +6,7 @@ export default function LanyardCard({
     dropDelay = 0.2,
 }) {
     return (
-        <section className="relative w-full flex flex-col items-center  sm:pt-24 px-4 sm:px-12 bg-[#0f0f1a]">
+        <section className="relative w-full flex flex-col items-center   px-4 sm:px-12 bg-[#0f0f1a] lg:pt-12 pt-12 lg:pb-12 pb-6 ">
             
             <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold text-purple-400 mb-10 sm:mb-12 text-center">
                 About Me

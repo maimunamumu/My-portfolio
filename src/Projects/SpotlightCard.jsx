@@ -104,7 +104,7 @@ export default function SpotlightProjects() {
         liveLink: "https://nest-mart-and-grosery-website.vercel.app/",
         clientRepo: "https://github.com/maimunamumu/Nest-Mart-And-Grosery-Website?tab=readme-ov-file",
         serverRepo: "https://github.com/maimunamumu/Nest-Mart-And-Grosery-Website?tab=readme-ov-file",
-        spotlightColor: "rgba(0, 229, 255, 0.15)",
+        spotlightColor: "rgba(255, 0, 229, 0.15)",
          viewLink: "https://nest-mart-and-grosery-website.vercel.app/",
     },
         
@@ -116,7 +116,7 @@ export default function SpotlightProjects() {
          description: "Shop Heaven is a role-based frontend e-commerce web application built entirely with React and React Router. Customers can browse products, add items to the cart, and navigate seamlessly through different pages. The project features a clean and responsive design using Tailwind CSS, providing a smooth and modern shopping experience for all users.",
             liveLink: "https://my-shop-e-commerce-website.vercel.app/",
             viewLink: "https://my-shop-e-commerce-website.vercel.app/",
-             spotlightColor: "rgba(0, 229, 255, 0.15)",
+             spotlightColor: "rgba(255, 0, 229, 0.15)",
             clientRepo: "https://github.com/maimunamumu/my-shop-e-commerce-website",
             serverRepo: "https://github.com/maimunamumu/my-shop-e-commerce-website"
         }

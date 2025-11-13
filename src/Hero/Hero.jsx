@@ -14,8 +14,8 @@ const Hero = () => {
         <div ref={homeRef} className="flex flex-col px-4 sm:px-0 md:flex-row  justify-between items-center max-w-[1400px] mx-auto bg-[#0f0f1a]">
             
 
-             <div className="flex-1 sm:py-10 py-0    flex justify-center items-center relative w-full  mt-12 md:mt-0 overflow-hidden">
-                <div className="relative w-full mt-10  h-[60vh] md:w-[540px] md:h-[450px]">
+             <div className="flex-1 sm:py-10 py-0    flex justify-center items-center relative w-full  lg:mt-0 md:mt-0 overflow-hidden mt-5">
+                <div className="relative w-full lg:mt-10 mt-4  h-[60vh] md:w-[540px] md:h-[450px]">
                     <CircularText
                         text="REACT*BITS*COMPONENTS*"
                         spinDuration={20}
