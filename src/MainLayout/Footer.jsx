@@ -82,7 +82,7 @@ export const Footer = () => {
 
             <div className="flex flex-col justify-between pt-5 pb-10 border-t border-gray-700 sm:flex-row">
                 <p className="text-sm text-gray-400">
-                    © {new Date().getFullYear()} Adnan. All rights reserved.
+                    © {new Date().getFullYear()} Mymuna. All rights reserved.
                 </p>
                 <div className="flex items-center mt-4 space-x-4 sm:mt-0">
                     <a href="https://github.com/your-github" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#C27AFF] transition"><FaGithub className="h-5 w-5" /></a>
