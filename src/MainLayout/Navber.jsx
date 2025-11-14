@@ -125,7 +125,7 @@ const Navber = () => {
                         <li>
                             <li className=" w-full">
                                 <a
-                                    href="https://drive.google.com/file/d/1XSQxAI_RwonvghV6mtSdy9iYxvyVcB7F/view?usp=sharing"
+                                    href="https://drive.google.com/file/d/1a3ENcxx0zcFnhXtEZM-dtbwgTHqmHt_G/view"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="block w-full px-3 sm:px-6 py-1 sm:py-2 bg-[#C27AFF] shadow-lg shadow-white/30 text-white rounded-lg hover:bg-[#9810FA] transition text-sm sm:text-base text-center"
