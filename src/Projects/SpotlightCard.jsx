@@ -142,7 +142,7 @@ export default function SpotlightProjects() {
             subtitle: "Frontend Social Media Website",
             description:
                 "Social Hub is a React-based social media website where users can view posts and navigate through pages easily with a simple, modern interface.",
-            liveLink: "https://socialhub2-mumu-new.vercel.app/",
+            liveLink: "https://socialhub2saima-new.vercel.app/",
             clientRepo: "https://github.com/maimunamumu/social-hub-apps-project",
             serverRepo: "https://github.com/maimunamumu/social-hub-apps-project",
             spotlightColor: "rgba(255, 0, 229, 0.15)",
