@@ -6,7 +6,7 @@ export default function LanyardCard({
     dropDelay = 0.2,
 }) {
     return (
-        <section className="relative w-full flex flex-col items-center   px-4 sm:px-12 bg-[#0f0f1a] lg:pt-12 pt-12 lg:pb-12 pb-6 ">
+        <section className="relative w-full flex flex-col items-center px-4 sm:px-12 bg-[#0f0f1a] lg:pt-12 pt-12 lg:pb-12 pb-6">
             
             <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold text-purple-400 mb-10 sm:mb-12 text-center">
                 About Me
@@ -17,16 +17,27 @@ export default function LanyardCard({
                     <div className="w-1.5 h-36 sm:h-72 md:h-96 bg-gradient-to-b from-purple-400/80 to-transparent mx-auto rounded-full" />
                 </div>
 
+                {/* ✨ Updated Smooth Animation */}
                 <motion.div
-                    initial={{ y: -200, rotate: -8, opacity: 0 }}
-                    whileInView={{ y: 0, rotate: [-8, 5, -3, 0], opacity: 1 }}
+                    initial={{ opacity: 0, scale: 0.8, y: 40 }}
+                    whileInView={{ opacity: 1, scale: 1, y: 0 }}
                     transition={{
+                        duration: 0.8,
+                        ease: "easeOut",
                         delay: dropDelay,
-                        y: { type: "spring", stiffness: 60, damping: 12 },
-                        rotate: { duration: 1.4, ease: "easeOut" },
-                        opacity: { duration: 0.6 },
                     }}
-                    viewport={{ once: true, amount: 0.3 }}
+                    viewport={{ once: true, amount: 0.4 }}
+                    animate={{
+                        y: [0, -10, 0],
+                    }}
+                    transition={{
+                        y: {
+                            repeat: Infinity,
+                            duration: 4,
+                            ease: "easeInOut",
+                        },
+                        default: { duration: 0.8, delay: dropDelay }
+                    }}
                     className="pointer-events-auto relative z-20 mt-12 w-full max-w-md sm:max-w-3xl"
                 >
                     <div className="w-full backdrop-blur-sm bg-[#1c1036]/30 border border-purple-500/40 rounded-3xl shadow-md shadow-purple-700/30 overflow-hidden">

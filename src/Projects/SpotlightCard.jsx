@@ -1,5 +1,5 @@
-
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import ProjectsDetails from "./ProjectsDetails";
 
 const SpotlightCard = ({
@@ -11,27 +11,42 @@ const SpotlightCard = ({
     liveLink = "#",
     clientRepo = "#",
     serverRepo = "#",
-
     spotlightColor = "rgba(0, 229, 255, 0.2)",
     className = "",
 }) => {
 
-
-
-    let [isOpen, setIsOpen] = useState(false)
-    const [storeId,setStoreId] = useState(null)
-
+    let [isOpen, setIsOpen] = useState(false);
+    const [storeId, setStoreId] = useState(null);
 
     function close() {
-        setIsOpen(false)
+        setIsOpen(false);
     }
+
     return (
-        <div
-            className={`relative rounded-2xl overflow-hidden shadow-2xl shadow-cyan-400/20 backdrop-blur-lg border border-cyan-300/20 p-0 ${className}`}
+        <motion.div
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            animate={{
+                y: [0, -8, 0], // subtle hum effect
+            }}
+            transition={{
+                y: { repeat: Infinity, repeatType: "mirror", duration: 4, ease: "easeInOut" },
+                default: { duration: 0.6, ease: "easeOut" },
+            }}
+            whileHover={{
+                scale: 1.03,
+                boxShadow: "0 0 25px rgba(194, 122, 255, 0.3)"
+            }}
+            className={`relative rounded-2xl overflow-hidden shadow-lg 
+            backdrop-blur-lg border border-cyan-300/20 p-0 flex flex-col 
+            transition-all duration-300 ${className}`}
             style={{ background: spotlightColor }}
         >
 
-            <div className="w-full h-48 sm:h-56 overflow-hidden">
+            {/* Image */}
+            <div className="w-full h-48 sm:h-56 overflow-hidden flex-shrink-0">
                 <img
                     src={image}
                     alt={title}
@@ -39,14 +54,14 @@ const SpotlightCard = ({
                 />
             </div>
 
-
-            <div className="p-6 space-y-3">
+            {/* Content */}
+            <div className="p-6 flex flex-col flex-grow space-y-3">
                 <h3 className="text-xl sm:text-2xl font-bold text-[#C27AFF]">{title}</h3>
                 <p className="text-sm sm:text-base text-gray-300 font-medium">{subtitle}</p>
                 <p className="text-gray-200 text-sm sm:text-base">{description}</p>
 
-
-                <div className="flex flex-wrap gap-2 mt-4">
+                {/* Buttons */}
+                <div className="flex flex-wrap gap-2 mt-auto pt-4">
                     <a
                         href={liveLink}
                         target="_blank"
@@ -55,95 +70,96 @@ const SpotlightCard = ({
                     >
                         Live
                     </a>
+
                     <a
                         href={clientRepo}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="px-4 py-1 bg-[#C27AFF] text-white rounded-lg shadow-md hover:bg-[#9810FA] transition"
                     >
-                        Client
+                        GitHub
                     </a>
-                    <a
-                        href={serverRepo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="px-4 py-1 bg-[#C27AFF] text-white rounded-lg shadow-md hover:bg-[#9810FA] transition"
-                    >
-                        Server
-                    </a>
+
                     <button
-
-
                         onClick={() => {
-                            setIsOpen(!isOpen)
-                            setStoreId(id)
+                            setIsOpen(!isOpen);
+                            setStoreId(id);
                         }}
-                        className="px-4 py-1 border flex justify-center items-center border-[#C27AFF] text-[#C27AFF] rounded-lg hover:bg-[#9810FA] hover:text-white transition"
+                        className="px-4 py-1 border border-[#C27AFF] text-[#C27AFF] rounded-lg 
+                        hover:bg-[#9810FA] hover:text-white transition"
                     >
                         View More
                     </button>
-                    {isOpen && <ProjectsDetails storeId={storeId && storeId} isOpen={isOpen} close={close} ></ProjectsDetails>}
 
+                    {isOpen && (
+                        <ProjectsDetails
+                            storeId={storeId}
+                            isOpen={isOpen}
+                            close={close}
+                        />
+                    )}
                 </div>
             </div>
-        </div>
+
+        </motion.div>
     );
 };
 
-
-
-
 export default function SpotlightProjects() {
     const projects = [
-         {
-        id: 1,
-        image: "https://i.ibb.co.com/LFCZdzg/Screenshot-2025-11-13-212856.png",
-        title: "Nest Mart ",
-        subtitle: "Role Based Front-End E-commerce Website",
-        description: "Nest Mart is a modern grocery shopping web application built with React and Tailwind CSS. It provides a smooth, responsive user experience with dynamic product listings, category-based filtering. This project focuses on clean UI design, reusability, and fast performance — making online grocery shopping seamless and user-friendly.",
-        liveLink: "https://nest-mart-and-grosery-website.vercel.app/",
-        clientRepo: "https://github.com/maimunamumu/Nest-Mart-And-Grosery-Website?tab=readme-ov-file",
-        serverRepo: "https://github.com/maimunamumu/Nest-Mart-And-Grosery-Website?tab=readme-ov-file",
-        spotlightColor: "rgba(255, 0, 229, 0.15)",
-         viewLink: "https://nest-mart-and-grosery-website.vercel.app/",
-    },
-        
+        {
+            id: 1,
+            image: "https://i.ibb.co.com/LFCZdzg/Screenshot-2025-11-13-212856.png",
+            title: "Nest Mart",
+            subtitle: "Frontend E-Commerce Website",
+            description:
+                "Nest Mart is a responsive grocery shopping website built with React and Tailwind. Users can browse and filter products easily with a clean and fast interface.",
+            liveLink: "https://nest-mart-and-grosery-website.vercel.app/",
+            clientRepo:
+                "https://github.com/maimunamumu/Nest-Mart-And-Grosery-Website?tab=readme-ov-file",
+            serverRepo:
+                "https://github.com/maimunamumu/Nest-Mart-And-Grosery-Website?tab=readme-ov-file",
+            spotlightColor: "rgba(255, 0, 229, 0.15)",
+        },
+
         {
             id: 2,
             image: "https://i.ibb.co.com/9HtKZ7kP/Screenshot-2025-11-13-212727.png",
             title: "Shop Heaven",
-            subtitle: "Role-Based Frontend E-Commerce WebSite",
-         description: "Shop Heaven is a role-based frontend e-commerce web application built entirely with React and React Router. Customers can browse products, add items to the cart, and navigate seamlessly through different pages. The project features a clean and responsive design using Tailwind CSS, providing a smooth and modern shopping experience for all users.",
+            subtitle: "Frontend E-Commerce Website",
+            description:
+                "Shop Heaven is a React-based e-commerce website where users can browse products, add items to the cart, and enjoy smooth navigation with a clean UI.",
             liveLink: "https://my-shop-e-commerce-website.vercel.app/",
-            viewLink: "https://my-shop-e-commerce-website.vercel.app/",
-             spotlightColor: "rgba(255, 0, 229, 0.15)",
             clientRepo: "https://github.com/maimunamumu/my-shop-e-commerce-website",
-            serverRepo: "https://github.com/maimunamumu/my-shop-e-commerce-website"
-        }
-        ,
+            serverRepo: "https://github.com/maimunamumu/my-shop-e-commerce-website",
+            spotlightColor: "rgba(255, 0, 229, 0.15)",
+        },
+
         {
             id: 3,
             image: "https://i.ibb.co.com/zhknYBtD/Screenshot-2025-11-13-212327.png",
             title: "Social Hub",
-            subtitle: "FrontEnd Application Website",
-          description: "Social Hub is a frontend social media web application built with React and React Router. Users can view posts, navigate between different pages, and interact with the UI in a seamless way. The project emphasizes responsive design, modern UI/UX, and smooth navigation without any backend integration.",
-            liveLink: "https://social-hub-apps-project-a8nc.vercel.app/",
-            viewLink: "https://social-hub-apps-project-a8nc.vercel.app/",
+            subtitle: "Frontend Social Media Website",
+            description:
+                "Social Hub is a React-based social media website where users can view posts and navigate through pages easily with a simple, modern interface.",
+            liveLink: "https://social-hub-apps-project-8un8.vercel.app/",
+            clientRepo: "https://github.com/maimunamumu/social-hub-apps-project",
+            serverRepo: "https://github.com/maimunamumu/social-hub-apps-project",
             spotlightColor: "rgba(255, 0, 229, 0.15)",
-            clientRepo: "https://github.com/maimunamumu/Social-Hub-Apps-Project",
-            serverRepo: "https://github.com/maimunamumu/Social-Hub-Apps-Project"
-        }
+        },
     ];
 
     return (
-        <section className="py-12 px-6 border sm:px-12 bg-[#0f0f1a]">
+        <section className="py-12 px-6 sm:px-12 bg-[#0f0f1a]">
             <h2 className="text-center text-4xl sm:text-5xl font-bold text-[#C27AFF] my-6">
                 My Projects
             </h2>
-             <div className='text-center border h-1 w-[50%] mx-auto bg-[#9810FA] rounded-md'></div>
+
+            <div className="text-center h-1 w-[50%] mx-auto bg-[#9810FA] rounded-md"></div>
+
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
-                {projects.map((proj, idx) => (
-                    <SpotlightCard key={idx} {...proj} />
+                {projects.map((proj) => (
+                    <SpotlightCard key={proj.id} {...proj} />
                 ))}
             </div>
         </section>

@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { motion } from "framer-motion";
 import { AuthContext } from "../Context/AuthContext";
 
 const Contact = () => {
@@ -21,6 +22,20 @@ const Contact = () => {
     setFormData({ name: "", email: "", subject: "", message: "" });
   };
 
+  // Framer Motion variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.2, duration: 0.5 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  };
+
   return (
     <section
       ref={contactRef}
@@ -29,9 +44,15 @@ const Contact = () => {
       {/* Background gradient / subtle spotlight */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#9810FA]/20 via-black/80 to-black/90 -z-10"></div>
 
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+      <motion.div
+        className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+      >
         {/* Info Section */}
-        <div className="space-y-6">
+        <motion.div variants={itemVariants} className="space-y-6">
           <h2 className="text-4xl sm:text-5xl font-bold text-[#9810FA]">
             Contact Me
           </h2>
@@ -42,14 +63,15 @@ const Contact = () => {
           <p className="text-gray-400">
             You can also reach me via email:{" "}
             <span className="text-[#C27AFF] font-medium">
-              maimunamumu7@gmail.com.com
+              maimunamumu7@gmail.com
             </span>
           </p>
-        </div>
+        </motion.div>
 
         {/* Form Section */}
-        <form
+        <motion.form
           onSubmit={handleSubmit}
+          variants={itemVariants}
           className="bg-black/70 backdrop-blur-md border border-[#9810FA]/30 rounded-2xl p-8 space-y-5 shadow-lg shadow-[#9810FA]/20"
         >
           {/* Name & Email */}
@@ -103,8 +125,8 @@ const Contact = () => {
           >
             Send Message
           </button>
-        </form>
-      </div>
+        </motion.form>
+      </motion.div>
     </section>
   );
 };
