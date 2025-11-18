@@ -37,9 +37,29 @@ const Contact = () => {
   };
 
   return (
-    <section
+   <div>
+<div className="text-center  py-12">
+  <motion.h1
+    initial={{ opacity: 0, y: -30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.8 }}
+    className="text-4xl md:text-6xl font-extrabold text-[#C27AFF]"
+  >
+    Contact Me
+  </motion.h1>
+
+  <motion.div
+    initial={{ scaleX: 0 }}
+    whileInView={{ scaleX: 1 }}
+    viewport={{ once: true }}
+    transition={{ duration: 1, delay: 0.5 }}
+    className="h-1.5 w-48 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto mt-6 rounded-full"
+  />
+</div>
+     <section
       ref={contactRef}
-      className="relative py-16 px-4 sm:px-12 text-gray-200"
+      className="relative py-4 px-4 sm:px-12 text-gray-200 pb-16"
     >
       {/* Background gradient / subtle spotlight */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#9810FA]/20 via-black/80 to-black/90 -z-10"></div>
@@ -119,15 +139,21 @@ const Contact = () => {
           ></textarea>
 
           {/* Submit Button */}
-          <button
-            type="submit"
-            className="w-full py-3 bg-gradient-to-r from-[#9810FA] to-[#C27AFF] text-black font-semibold rounded-lg shadow-lg hover:opacity-90 transition"
-          >
-            Send Message
-          </button>
+        <button
+  type="submit"
+  className="w-full py-4 bg-gradient-to-r from-purple-600 to-pink-600 
+             text-white font-bold text-lg rounded-full 
+             hover:scale-105 
+             shadow-lg hover:shadow-purple-500/60 
+             transition-all duration-300 
+             active:scale-100"
+>
+  Send Message
+</button>
         </motion.form>
       </motion.div>
     </section>
+   </div>
   );
 };
 

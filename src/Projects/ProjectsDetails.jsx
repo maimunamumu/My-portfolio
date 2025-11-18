@@ -37,24 +37,23 @@ const projects = [
       "Built with React, Tailwind CSS, React Router",
     ],
   },
-  {
-    id: 3,
-    name: "B2B Marketplace",
-    purpose:
-      "A B2B marketplace for wholesalers and buyers. Integrated with authentication, cart, and online payments. Built using React, Node.js, and MongoDB.",
-    roles: {
-      admin: ["Manage products & categories", "Monitor buyers & suppliers", "Approve transactions"],
-      supplier: ["Add products", "Manage inventory", "Track orders"],
-      buyer: ["Browse products", "Place orders", "Manage cart"],
-    },
-    keyFeatures: [
-      "Role-based access (Admin, Supplier, Buyer)",
-      "Product display in card & table formats",
-      "Cart system with dynamic quantity",
-      "Authentication & protected routes",
-      "Responsive UI with Tailwind CSS",
-    ],
+ {
+  id: 3,
+  name: "Tourex - Travel Booking",
+  purpose:
+    "A clean and modern travel booking app with tour filtering, detailed pages, cart system and smooth UI – built using React and Tailwind CSS.",
+  roles: {
+    admin: ["Manage tours & users", "Approve packages", "View bookings"],
+    customer: ["Browse & filter tours", "Add to cart & wishlist", "Book tours"],
   },
+  keyFeatures: [
+    "Smart tour filtering",
+    "Cart and wishlist",
+    "Responsive design",
+    "Smooth page transitions",
+    "Beautiful UI with Tailwind",
+  ],
+},
 
 ];
 

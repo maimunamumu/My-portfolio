@@ -74,7 +74,9 @@ const Navber = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="resume"
-                        className="hidden w-full md:inline-block bg-[#9912FA] text-white px-4 py-2 rounded-lg shadow-md shadow-white/40 transition"
+                        className="hidden w-full md:inline-block px-6 py-2 bg-gradient-to-r from-purple-600 to-pink-600 
+                         text-white font-semibold rounded-full hover:scale-105 
+                         shadow-lg hover:shadow-purple-500/50 transition-all duration-300"
                     >
                         Resume
                     </a>
@@ -128,7 +130,9 @@ const Navber = () => {
                                     href="https://drive.google.com/file/d/1a3ENcxx0zcFnhXtEZM-dtbwgTHqmHt_G/view"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="block w-full px-3 sm:px-6 py-1 sm:py-2 bg-[#C27AFF] shadow-lg shadow-white/30 text-white rounded-lg hover:bg-[#9810FA] transition text-sm sm:text-base text-center"
+                                    className="block w-full px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 
+                         text-white font-semibold rounded-full hover:scale-105 
+                         shadow-lg hover:shadow-purple-500/50 transition-all duration-300 text-center"
                                 >
                                     Resume
                                 </a>

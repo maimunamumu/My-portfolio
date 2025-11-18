@@ -2,165 +2,167 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import ProjectsDetails from "./ProjectsDetails";
 
-// Imported Images (REPLACING URL IMAGES)
 import SocialHubImg from "../assets/projectImage/Screenshot 2025-11-18 204129.png";
 import NestMartImg from "../assets/projectImage/Screenshot 2025-11-17 225420.png";
 import ShopHeavenImg from "../assets/projectImage/Screenshot 2025-11-18 181449.png";
 
 const SpotlightCard = ({
-    id = "",
-    image,
-    title,
-    subtitle,
-    description,
-    liveLink,
-    clientRepo,
-    serverRepo,
+  id,
+  image,
+  title,
+  subtitle,
+  description,
+  liveLink,
+  clientRepo,
 }) => {
-    const [isOpen, setIsOpen] = useState(false);
-    const [storeId, setStoreId] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
 
-    return (
-        <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 20 }}
-            whileInView={{ opacity: 1, scale: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
+  return (
+    <>
+      <motion.div
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
 
-            animate={{ y: [0, -6, 0] }}
-            transition={{
-                y: { repeat: Infinity, repeatType: "mirror", duration: 4 },
-                scale: { duration: 0.5 },
-            }}
+        whileHover={{ y: -12 }}
+        className="group relative bg-gradient-to-br from-purple-900/20 via-black/40 to-pink-900/20 
+                   backdrop-blur-2xl border border-purple-500/30 rounded-3xl overflow-hidden
+                   shadow-2xl hover:shadow-purple-500/25 transition-all duration-700
+                   cursor-pointer"
+      >
+        {/* Floating Glow Effect */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-purple-600/20 to-pink-600/20 
+                        opacity-0 group-hover:opacity-100 transition-opacity duration-1000 -z-10" />
 
-            whileHover={{
-                scale: 1.04,
-                boxShadow: "0 0 35px rgba(194, 122, 255, 0.35)",
-            }}
+        {/* Project Image - Full Visible, No Crop */}
+        <div className="relative overflow-hidden">
+          <img
+            src={image}
+            alt={title}
+            className="w-full object-cover object-top transition-transform duration-1000 
+                       group-hover:scale-110 group-hover:rotate-1"
+            style={{ height: "420px" }}
+          />
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
+          
+          {/* Title on Image Bottom */}
+          <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
+            <h3 className="text-3xl font-bold tracking-tight">{title}</h3>
+            <p className="text-purple-300 text-lg mt-1">{subtitle}</p>
+          </div>
+        </div>
 
-            className="relative rounded-2xl overflow-hidden shadow-lg 
-                       border border-[#C27AFF33] 
-                       bg-[#1a1128]/60 backdrop-blur-xl 
-                       transition-all duration-300 flex flex-col"
-        >
-            {/* Image */}
-            <div className="w-full  overflow-hidden">
-                <img
-                    src={image}
-                    alt={title}
-                    className="w-full h-[400px]  object-cover transition-transform duration-500 hover:scale-105"
-                />
-            </div>
+        {/* Card Content */}
+        <div className="p-8 space-y-5 bg-gradient-to-b from-transparent to-black/60">
+          <p className="text-gray-200 leading-Relaxed line-clamp-3">
+            {description}
+          </p>
 
-            {/* Content */}
-            <div className="p-6 space-y-3 flex flex-col flex-grow">
-                <h3 className="text-xl sm:text-2xl font-bold text-[#C27AFF]">
-                    {title}
-                </h3>
+          {/* Buttons */}
+          <div className="flex flex-wrap gap-4 pt-4">
+            <a
+              href={liveLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 
+                         text-white font-semibold rounded-full hover:scale-105 
+                         shadow-lg hover:shadow-purple-500/50 transition-all duration-300"
+            >
+              Live Demo
+            </a>
 
-                <p className="text-sm sm:text-base text-gray-300">{subtitle}</p>
+            <a
+              href={clientRepo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 border border-purple-500 text-purple-300 
+                         font-semibold rounded-full hover:bg-purple-500/20 
+                         transition-all duration-300 backdrop-blur-sm"
+            >
+              GitHub
+            </a>
 
-                <p className="text-gray-200 text-sm leading-relaxed">
-                    {description}
-                </p>
+            <button
+              onClick={() => setIsOpen(true)}
+              className="px-6 py-3 bg-white/10 backdrop-blur-md border border-white/20 
+                         text-white font-medium rounded-full hover:bg-white/20 
+                         transition-all duration-300"
+            >
+              View Details
+            </button>
+          </div>
+        </div>
+      </motion.div>
 
-                {/* Buttons */}
-                <div className="flex flex-wrap gap-3 mt-auto pt-3">
-                    <a
-                        href={liveLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="px-4 py-1.5 bg-[#C27AFF] text-white rounded-lg 
-                                hover:bg-[#9810FA] transition shadow-md"
-                    >
-                        Live
-                    </a>
-
-                    <a
-                        href={clientRepo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="px-4 py-1.5 bg-[#C27AFF] text-white rounded-lg 
-                                hover:bg-[#9810FA] transition shadow-md"
-                    >
-                        GitHub
-                    </a>
-
-                    <button
-                        onClick={() => {
-                            setIsOpen(true);
-                            setStoreId(id);
-                        }}
-                        className="px-4 py-1.5 border border-[#C27AFF] text-[#C27AFF] rounded-lg 
-                                hover:bg-[#9810FA] hover:text-white transition"
-                    >
-                        View More
-                    </button>
-                </div>
-
-                {isOpen && (
-                    <ProjectsDetails
-                        storeId={storeId}
-                        isOpen={isOpen}
-                        close={() => setIsOpen(false)}
-                    />
-                )}
-            </div>
-        </motion.div>
-    );
+      {isOpen && (
+        <ProjectsDetails
+          storeId={id}
+          isOpen={isOpen}
+          close={() => setIsOpen(false)}
+        />
+      )}
+    </>
+  );
 };
 
-
 export default function SpotlightProjects() {
-    const projects = [
-        {
-            id: 1,
-            image: NestMartImg,
-            title: "Nest Mart",
-            subtitle: "Frontend E-Commerce Website",
-            description:
-                "Clean grocery shopping UI with category browsing, product view, and a smooth user experience.",
-            liveLink: "https://nest-mart-and-grosery-website.vercel.app/",
-            clientRepo: "https://github.com/maimunamumu/Nest-Mart-And-Grosery-Website",
-            serverRepo: "https://github.com/maimunamumu/Nest-Mart-And-Grosery-Website",
-        },
+  const projects = [
+    {
+      id: 1,
+      image: NestMartImg,
+      title: "Nest Mart",
+      subtitle: "Grocery Shopping Experience",
+      description: "A clean, modern grocery e-commerce platform with smooth navigation, category filtering, and premium user experience.",
+      liveLink: "https://nest-mart-and-grosery-website.vercel.app/",
+      clientRepo: "https://github.com/maimunamumu/Nest-Mart-And-Grosery-Website",
+    },
+    {
+      id: 2,
+      image: ShopHeavenImg,
+      title: "Shop Heaven",
+      subtitle: "Premium Fashion Store",
+      description: "Minimal & elegant e-commerce UI with fast transitions, product showcase, and luxurious feel.",
+      liveLink: "https://my-shop-e-commerce-website.vercel.app/",
+      clientRepo: "https://github.com/maimunamumu/my-shop-e-commerce-website",
+    },
+    {
+      id: 3,
+      image: SocialHubImg,
+      title: "Tourex",
+      subtitle: "Travel Booking Platform",
+      description: "A stunning, fully responsive travel agency website with advanced filtering, tour details, cart system, and breathtaking animations.",
+      liveLink: "https://travel-website-project-3.vercel.app/",
+      clientRepo: "https://github.com/maimunamumu/Travel-website",
+    },
+  ];
 
-        {
-            id: 2,
-            image: ShopHeavenImg,
-            title: "Shop Heaven",
-            subtitle: "Premium E-Commerce UI",
-            description:
-                "Minimal and elegant e-commerce UI with fast transitions, product showcase, and clean layout.",
-            liveLink: "https://my-shop-e-commerce-website.vercel.app/",
-            clientRepo: "https://github.com/maimunamumu/my-shop-e-commerce-website",
-            serverRepo: "https://github.com/maimunamumu/my-shop-e-commerce-website",
-        },
+  return (
+    <section className="py-20 px-6 bg-black/95">
+      <div className="text-center mb-16">
+        <motion.h2
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-2xl md:text-4xl font-extrabold text-[#C27AFF] "
+        >
+          My Project
+        </motion.h2>
+        <motion.div
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 0.5 }}
+          className="h-1.5 w-48 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto mt-6 rounded-full"
+        />
+      </div>
 
-        {
-            id: 3,
-            image: SocialHubImg,
-            title: "Travel Website",
-            subtitle: "Explore the World – Built with React",
-          description: "Modern, fully responsive travel agency website built with React and Tailwind CSS. Includes destination , tour packages,  travel booking experience.",
-            liveLink: "https://travel-website-project-3.vercel.app/",
-            clientRepo: "https://github.com/maimunamumu/Travel-website",
-            serverRepo: "https://github.com/maimunamumu/Travel-website",
-        },
-    ];
-
-    return (
-        <section className="py-14 px-6 sm:px-12 bg-[#0f0f1a]">
-            <h2 className="text-center text-4xl sm:text-5xl font-bold text-[#C27AFF]">
-                My Projects
-            </h2>
-
-            <div className="h-1 w-40 bg-[#9810FA] mx-auto rounded-full mt-3"></div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mt-12">
-                {projects.map((proj) => (
-                    <SpotlightCard key={proj.id} {...proj} />
-                ))}
-            </div>
-        </section>
- );
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
+        {projects.map((project) => (
+          <SpotlightCard key={project.id} {...project} />
+        ))}
+      </div>
+    </section>
+  );
 }

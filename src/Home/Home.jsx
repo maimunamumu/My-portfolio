@@ -27,10 +27,6 @@ const Home = () => {
 
          <div className='max-w-[1400px] mx-auto bg-[#0f0f1a]'>
 
-            <div className='pt-18'>
-                <h1 className='text-4xl text-center text-[#C27AFF] font-semibold'>Contact Me</h1>
-            </div>
-            <div className='text-center border h-1 w-[50%] mx-auto bg-[#9810FA] rounded-md mt-4'></div>
              <Contact></Contact>
          </div> 
 

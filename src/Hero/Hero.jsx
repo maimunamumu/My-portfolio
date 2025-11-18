@@ -91,13 +91,17 @@ const Hero = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="LeetCode"
-                        className="px-3 sm:px-6 py-1 sm:py-2 bg-[#9912FA] shadow-lg shadow-white/30 text-white rounded-lg hover:bg-[#9912FA] transition text-sm sm:text-base"
+                        className="px-6 py-2 bg-gradient-to-r from-purple-600 to-pink-600 
+                         text-white font-semibold rounded-full hover:scale-105 
+                         shadow-lg hover:shadow-purple-500/50 transition-all duration-300"
                     >
                         Resume
                     </a>
                     <button
                         onClick={()=>goToProjectSection(contactRef)}
-                        className="px-3 sm:px-6 py-1 sm:py-2 border border-[#9912FA]  shadow-lg shadow-white/30 text-[#C27AFF] rounded-lg hover:bg-[#9912FA] hover:text-white transition text-sm sm:text-base"
+                        className="px-4 sm:px-6 py-1 sm:py-1 border border-[#9912FA]  shadow-lg text-white bg-gradient-to-r from-purple-600 to-pink-600 
+                         font-semibold rounded-full hover:scale-105 
+                        hover:shadow-purple-500/50 transition-all duration-300"
                     >
                         Contact Me
                     </button>
