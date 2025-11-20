@@ -87,7 +87,7 @@ const Hero = () => {
                 </div>
                 <div className="flex flex-wrap gap-2 sm:gap-4">
                     <a
-                        href="https://drive.google.com/file/d/1a3ENcxx0zcFnhXtEZM-dtbwgTHqmHt_G/view"
+                        href="https://drive.google.com/file/d/1OxSbtNyaGl9nUes6xeGHROT2EWkxk4gK/view?usp=sharing"
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="LeetCode"

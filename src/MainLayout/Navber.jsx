@@ -70,7 +70,7 @@ const Navber = () => {
 
                 <div className="">
                     <a
-                        href="https://drive.google.com/file/d/1a3ENcxx0zcFnhXtEZM-dtbwgTHqmHt_G/view"
+                        href="https://drive.google.com/file/d/1OxSbtNyaGl9nUes6xeGHROT2EWkxk4gK/view?usp=sharing"
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="resume"
@@ -127,7 +127,7 @@ const Navber = () => {
                         <li>
                             <li className=" w-full">
                                 <a
-                                    href="https://drive.google.com/file/d/1a3ENcxx0zcFnhXtEZM-dtbwgTHqmHt_G/view"
+                                    href="https://drive.google.com/file/d/1OxSbtNyaGl9nUes6xeGHROT2EWkxk4gK/view?usp=sharing"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="block w-full px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 

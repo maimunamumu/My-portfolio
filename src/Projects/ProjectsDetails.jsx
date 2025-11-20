@@ -4,10 +4,38 @@ import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 
 const projects = [
   {
-    id: 1,
+  id: 1,
+  name: "EdCare - Online Education Platform",
+  purpose:
+    "A modern e-learning platform with course categories, filtering system, detailed dynamic pages, student dashboard and a fully responsive UI — built using Next.js and Tailwind CSS.",
+  roles: {
+    admin: [
+      "Manage courses & categories",
+      "Approve and update course content",
+      "Monitor enrollments and user activity"
+    ],
+    student: [
+      "Browse & filter courses",
+      "Add courses to wishlist",
+      "View detailed course pages",
+      "Enroll and track learning progress"
+    ]
+  },
+  keyFeatures: [
+    "Dynamic course filtering",
+    "Wishlist system",
+    "Responsive design",
+    "Dynamic routing for course details",
+    "Smooth page animations",
+    "Modern UI with Tailwind CSS"
+  ]
+}
+,
+  {
+    id: 2,
     name: "Nest Mart",
     purpose:
-      "A modern e-commerce web application developed using React, Tailwind CSS, and React Router, offering seamless navigation, product filtering features for an engaging shopping experience.",
+      "A modern e-commerce web application developed using React, Tailwind CSS, and React Router, product filtering features for an engaging shopping experience.",
     roles: {
       admin: ["Manage products & categories", "Monitor users", "Handle orders"],
       customer: ["Browse products", "Add to cart & wishlist", "Checkout securely"],
@@ -21,7 +49,7 @@ const projects = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     name: "ShopHeaven",
     purpose:
       "ShopHeaven is a modern e-commerce platform built with React, Tailwind CSS, and React Router, featuring dynamic product filtering, cart and wishlist management, and a smooth, responsive shopping experience.",
@@ -38,7 +66,24 @@ const projects = [
     ],
   },
  {
-  id: 3,
+  id: 4,
+  name: "Tourex - Travel Booking",
+  purpose:
+    "A clean and modern travel booking app with tour filtering, detailed pages, cart system and smooth UI – built using React and Tailwind CSS.",
+  roles: {
+    admin: ["Manage tours & users", "Approve packages", "View bookings"],
+    customer: ["Browse & filter tours", "Add to cart & wishlist", "Book tours"],
+  },
+  keyFeatures: [
+    "Smart tour filtering",
+    "Cart and wishlist",
+    "Responsive design",
+    "Smooth page transitions",
+    "Beautiful UI with Tailwind",
+  ],
+},
+ {
+  id: 4,
   name: "Tourex - Travel Booking",
   purpose:
     "A clean and modern travel booking app with tour filtering, detailed pages, cart system and smooth UI – built using React and Tailwind CSS.",
